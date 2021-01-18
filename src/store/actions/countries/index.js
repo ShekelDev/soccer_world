@@ -11,7 +11,7 @@ export const getCountries = (onGetSuccess = () => {}, onFailure = () => {}) => {
             onGetSuccess();
             return {
                 type: types.countries.countriesSet,
-                payload: response.api.countries[0],
+                payload: response.api.countries,
             };
         },
         onFailure,

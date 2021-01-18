@@ -1,1 +1,1 @@
-export { default as useCountries } from "./useCountries";
+export { default as useTeams } from "./useTeams";

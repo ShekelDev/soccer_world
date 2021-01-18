@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import withGoogleApi from "./withGoogleApi";
-import { useCountries } from "./Data";
+import { useTeams } from "./Data";
 import { GoogleMap } from "@react-google-maps/api";
 import { BaseMap, mapStyles } from "./style";
 
 const Map = () => {
     const mapRef = useRef();
-    const countries = useCountries();
+    const teams = useTeams();
     const [initialPosition, setInitialPosition] = useState();
 
     useEffect(() => {
