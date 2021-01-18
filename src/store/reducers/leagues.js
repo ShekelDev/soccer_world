@@ -1,6 +1,6 @@
 import { types } from "store/types";
 
-const leagues = (state = [], action) => {
+const leagues = (state = {}, action) => {
     switch (action.type) {
         case types.leagues.leagueSet:
             return insertLeagues(state, action.payload);
@@ -10,7 +10,7 @@ const leagues = (state = [], action) => {
 };
 
 const insertLeagues = (leagues, newLeagues) => {
-    const tmpLeagues = [...leagues];
+    const tmpLeagues = { ...leagues };
     newLeagues.forEach((league) => {
         tmpLeagues[league.league_id] = league;
     });

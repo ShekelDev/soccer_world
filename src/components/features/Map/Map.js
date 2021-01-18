@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getLeagues } from "store/actions";
 import withGoogleApi from "./withGoogleApi";
 import { GoogleMap } from "@react-google-maps/api";
@@ -11,8 +11,6 @@ const Map = () => {
     const dispatch = useDispatch();
     const mapRef = useRef();
     const { initialPosition, value, country, handleSearchChange } = useMapBehavior(mapRef);
-
-    const leagues = useSelector((state) => state.leagues);
 
     useEffect(() => {
         dispatch(getLeagues(country));
