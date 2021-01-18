@@ -2,8 +2,21 @@ import styled from "styled-components";
 
 export const BaseMap = styled.div`
     display: flex;
+    position: relative;
     width: 100%;
     height: 100%;
+`;
+
+export const SearchInputWrapper = styled.div`
+    position: absolute;
+    top: 0;
+    margin-block-start: 20px;
+    margin-inline-start: 20px;
+    width: 200px;
+    border-radius: 7px;
+    height: auto;
+    z-index: 9999;
+    box-sizing: border-box;
 `;
 
 export const mapStyles = [

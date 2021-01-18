@@ -1,30 +1,27 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useRef, useCallback } from "react";
 import withGoogleApi from "./withGoogleApi";
-import { useTeams } from "./Data";
 import { GoogleMap } from "@react-google-maps/api";
-import { BaseMap, mapStyles } from "./style";
+import { useMapBehavior } from "components/features/Map/Data";
+import SearchInput from "components/common/SearchInput";
+import { BaseMap, SearchInputWrapper, mapStyles } from "./style";
 
 const Map = () => {
     const mapRef = useRef();
-    const teams = useTeams();
-    const [initialPosition, setInitialPosition] = useState();
-
-    useEffect(() => {
-        initializeMapPosition();
-    }, []);
-
-    const initializeMapPosition = () => {
-        navigator.geolocation.getCurrentPosition(({ coords }) => {
-            setInitialPosition({ lat: coords.latitude, lng: coords.longitude });
-        });
-    };
+    const { initialPosition, value, country, setValue } = useMapBehavior(mapRef);
 
     const onMapLoad = useCallback((map) => {
         mapRef.current = map;
     }, []);
 
+    const handleSearchChange = (term) => {
+        setValue(term);
+    };
+
     return (
         <BaseMap>
+            <SearchInputWrapper>
+                <SearchInput value={value} onChange={handleSearchChange} />
+            </SearchInputWrapper>
             <GoogleMap
                 mapContainerStyle={{ width: "100%", height: "100%" }}
                 center={initialPosition}
@@ -34,7 +31,7 @@ const Map = () => {
                     styles: mapStyles,
                     disableDefaultUI: true,
                 }}
-            />
+            ></GoogleMap>
         </BaseMap>
     );
 };
