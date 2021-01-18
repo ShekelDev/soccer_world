@@ -1,6 +1,6 @@
 export const types = {
-    countries: {
-        countriesGet: "COUNTRIES_GET",
-        countriesSet: "COUNTRIES_SET",
+    leagues: {
+        leagueGet: "LEAGUE_GET",
+        leagueSet: "LEAGUE_SET",
     },
 };

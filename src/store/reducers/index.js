@@ -1,1 +1,1 @@
-export { default as countries } from "store/reducers/countries";
+export { default as leagues } from "store/reducers/leagues";

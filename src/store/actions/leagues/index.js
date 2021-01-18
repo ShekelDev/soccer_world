@@ -1,17 +1,17 @@
 import { types } from "store/types";
 import { headers } from "store/actions";
 
-export const getCountries = (onGetSuccess = () => {}, onFailure = () => {}) => {
+export const getLeagues = (country, onGetSuccess = () => {}, onFailure = () => {}) => {
     return apiAction({
-        url: `https://api-football-v1.p.rapidapi.com/v2/countries`,
+        url: `https://api-football-v1.p.rapidapi.com/v2/leagues/country/${country}/2020`,
         method: "GET",
-        type: types.countries.countriesGet,
+        type: types.leagues.leagueGet,
         headers,
         onSuccess: (response) => {
             onGetSuccess();
             return {
-                type: types.countries.countriesSet,
-                payload: response.api.countries,
+                type: types.leagues.leagueSet,
+                payload: response.api.leagues,
             };
         },
         onFailure,
