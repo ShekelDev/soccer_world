@@ -31,7 +31,7 @@ const useMapBehavior = (mapRef) => {
     };
 
     const getCountryName = (geocode) => {
-        return geocode.address_components?.find((component) => component.types.includes("country"))?.long_name;
+        return geocode.address_components?.find((component) => component.types.includes("country"))?.long_name.toLowerCase();
     };
 
     const initializeMapPosition = () => {

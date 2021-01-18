@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useCallback } from "react";
+import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
 import { getLeagues } from "store/actions";
 import withGoogleApi from "./withGoogleApi";
@@ -6,14 +7,19 @@ import { GoogleMap } from "@react-google-maps/api";
 import useMapBehavior from "./useMapBehavior";
 import SearchInput from "components/common/SearchInput";
 import { BaseMap, SearchInputWrapper, mapStyles } from "./style";
+import { URL } from "constant";
 
 const Map = () => {
+    const history = useHistory();
     const dispatch = useDispatch();
     const mapRef = useRef();
     const { initialPosition, value, country, handleSearchChange } = useMapBehavior(mapRef);
 
     useEffect(() => {
-        dispatch(getLeagues(country));
+        if (country) {
+            dispatch(getLeagues(country));
+            history.push(`/${URL.leagues}/${country}`);
+        }
     }, [country]);
 
     const onMapLoad = useCallback((map) => {
