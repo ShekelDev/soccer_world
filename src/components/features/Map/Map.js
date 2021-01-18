@@ -1,21 +1,17 @@
 import React, { useRef, useCallback } from "react";
 import withGoogleApi from "./withGoogleApi";
 import { GoogleMap } from "@react-google-maps/api";
-import { useMapBehavior } from "components/features/Map/Data";
+import useMapBehavior from "./useMapBehavior";
 import SearchInput from "components/common/SearchInput";
 import { BaseMap, SearchInputWrapper, mapStyles } from "./style";
 
 const Map = () => {
     const mapRef = useRef();
-    const { initialPosition, value, country, setValue } = useMapBehavior(mapRef);
+    const { initialPosition, value, country, handleSearchChange } = useMapBehavior(mapRef);
 
     const onMapLoad = useCallback((map) => {
         mapRef.current = map;
     }, []);
-
-    const handleSearchChange = (term) => {
-        setValue(term);
-    };
 
     return (
         <BaseMap>

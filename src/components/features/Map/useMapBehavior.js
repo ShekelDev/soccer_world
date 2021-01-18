@@ -45,7 +45,11 @@ const useMapBehavior = (mapRef) => {
         mapRef.current?.setZoom(6);
     };
 
-    return { initialPosition, value, country, setValue };
+    const handleSearchChange = (term) => {
+        setValue(term);
+    };
+
+    return { initialPosition, value, country, setValue, handleSearchChange };
 };
 
 export default useMapBehavior;
