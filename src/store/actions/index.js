@@ -34,7 +34,7 @@ export const getStandings = (leagueId, onGetSuccess = () => {}, onFailure = () =
             onGetSuccess();
             return {
                 type: types.standings.standingsSet,
-                payload: { newStandings: response.api.standings, leagueId },
+                payload: { newStandings: response.api.standings[0], leagueId },
             };
         },
         onFailure,

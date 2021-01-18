@@ -14,7 +14,7 @@ const Leagues = (props) => {
 
     const handleLeagueClick = (leagueId) => {
         dispatch(getStandings(leagueId));
-        history.push(`/${URL.standings}/leagueId`);
+        history.push(`/${URL.standings}/${leagueId}`);
     };
 
     return (
