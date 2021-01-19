@@ -9,8 +9,8 @@ import { BaseStandings, Header, StandingsList } from "./style";
 const Standings = (props) => {
     const dispatch = useDispatch();
     const { leagueId } = props.match.params;
-    const standings = useSelector((state) => selectStandings(state, leagueId));
     const teams = useSelector((state) => state.teams);
+    const standings = useSelector((state) => selectStandings(state, leagueId));
 
     useEffect(() => {
         dispatch(getTeams(leagueId));
@@ -27,8 +27,8 @@ const Standings = (props) => {
         <BaseStandings>
             <Header>League Standings</Header>
             <StandingsList>
-                {standings.map((team) => (
-                    <Standing key={team.rank} {...team} onClick={handleTeamClick} />
+                {standings.map((standing) => (
+                    <Standing key={standing.rank} {...standing} onClick={handleTeamClick} />
                 ))}
             </StandingsList>
         </BaseStandings>

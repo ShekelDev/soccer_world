@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const BaseLeagues = styled.div`
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 700px;
 `;
 
 export const Header = styled.div`

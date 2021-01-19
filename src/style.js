@@ -8,10 +8,11 @@ export const Content = styled.div`
 
 export const MapWrapper = styled.div`
     display: flex;
-    width: 60%;
+    width: 100%;
 `;
 
 export const DetailsWrapper = styled.div`
     display: flex;
-    width: 40%;
+    max-width: 40%;
+    width: auto;
 `;
