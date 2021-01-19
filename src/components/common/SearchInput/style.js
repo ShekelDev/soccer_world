@@ -13,7 +13,7 @@ export const IconWrapper = styled.div`
     align-items: center;
     justify-content: flex-end;
     height: 74px;
-    color: ${({ hasValue }) => (hasValue ? "black" : "#bbb5b5")};
+    color: ${({ hasValue }) => (hasValue ? "navy" : "#bbb5b5")};
     width: 55px;
     z-index: 2;
     transition: color 0.2s ease-in-out;
