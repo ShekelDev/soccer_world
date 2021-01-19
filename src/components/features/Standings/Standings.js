@@ -1,26 +1,34 @@
-import React from "react";
-import { URL } from "constant";
-import { useHistory } from "react-router";
+import React, { useEffect } from "react";
 import { createSelector } from "reselect";
-import { getStandings } from "store/actions";
+import { getTeams, addTeamCoords } from "store/actions";
 import { useDispatch, useSelector } from "react-redux";
+import { getGeocode } from "use-places-autocomplete";
 import Standing from "./Standing";
 import { BaseStandings, Header, StandingsList } from "./style";
 
 const Standings = (props) => {
-    const history = useHistory();
     const dispatch = useDispatch();
     const { leagueId } = props.match.params;
     const standings = useSelector((state) => selectStandings(state, leagueId));
+    const teams = useSelector((state) => state.teams);
 
-    console.log(standings);
+    useEffect(() => {
+        dispatch(getTeams(leagueId));
+    }, [leagueId]);
+
+    const handleTeamClick = async (teamId) => {
+        const geolocation = await getGeocode({ address: `${teams[teamId].venue_name}` });
+        const lat = geolocation[0].geometry.location.lat();
+        const lng = geolocation[0].geometry.location.lng();
+        dispatch(addTeamCoords(teamId, { lat, lng }));
+    };
 
     return (
         <BaseStandings>
             <Header>League Standings</Header>
             <StandingsList>
                 {standings.map((team) => (
-                    <Standing key={team.rank} {...team} />
+                    <Standing key={team.rank} {...team} onClick={handleTeamClick} />
                 ))}
             </StandingsList>
         </BaseStandings>

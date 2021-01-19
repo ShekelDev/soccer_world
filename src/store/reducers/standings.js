@@ -1,6 +1,6 @@
 import { types } from "store/types";
 
-const standings = (state = [], action) => {
+const standings = (state = {}, action) => {
     switch (action.type) {
         case types.standings.standingsSet:
             return insertStandings(state, action.payload);

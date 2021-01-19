@@ -7,4 +7,9 @@ export const types = {
         standingsGet: "STANDINGS_GET",
         standingsSet: "STANDINGS_SET",
     },
+    teams: {
+        teamsGet: "TEAMS_GET",
+        teamsSet: "TEAMS_SET",
+        addCoords: "ADD_COORDS",
+    },
 };

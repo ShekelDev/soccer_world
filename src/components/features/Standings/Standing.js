@@ -2,8 +2,12 @@ import React from "react";
 import { BaseStanding, LogoWrapper, TeamLogo, TeamDetails } from "./style";
 
 const Standing = (props) => {
+    const handleClick = () => {
+        props.onClick(props.team_id);
+    };
+
     return (
-        <BaseStanding>
+        <BaseStanding onClick={handleClick}>
             <LogoWrapper>
                 <TeamLogo src={props.logo} alt="" />
             </LogoWrapper>

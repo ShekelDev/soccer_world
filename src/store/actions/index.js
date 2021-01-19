@@ -41,6 +41,30 @@ export const getStandings = (leagueId, onGetSuccess = () => {}, onFailure = () =
     });
 };
 
+export const getTeams = (leagueId, onGetSuccess = () => {}, onFailure = () => {}) => {
+    return apiAction({
+        url: `https://api-football-v1.p.rapidapi.com/v2/teams/league/${leagueId}`,
+        method: "GET",
+        type: types.teams.teamsGet,
+        headers,
+        onSuccess: (response) => {
+            onGetSuccess();
+            return {
+                type: types.teams.teamsSet,
+                payload: { newTeams: response.api.teams, leagueId },
+            };
+        },
+        onFailure,
+    });
+};
+
+export const addTeamCoords = (teamId, position) => {
+    return {
+        type: types.teams.addCoords,
+        payload: { teamId, position },
+    };
+};
+
 const apiAction = ({ type, payload = {}, url, method, data, headers = {}, onSuccess, onFailure }) => {
     return {
         type,

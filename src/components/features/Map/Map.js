@@ -1,19 +1,20 @@
 import React, { useEffect, useRef, useCallback } from "react";
+import { URL } from "constant";
 import { useHistory } from "react-router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getLeagues } from "store/actions";
 import withGoogleApi from "./withGoogleApi";
-import { GoogleMap } from "@react-google-maps/api";
+import { GoogleMap, Marker } from "@react-google-maps/api";
 import useMapBehavior from "./useMapBehavior";
 import SearchInput from "components/common/SearchInput";
 import { BaseMap, SearchInputWrapper, mapStyles } from "./style";
-import { URL } from "constant";
 
 const Map = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const mapRef = useRef();
     const { initialPosition, value, country, handleSearchChange } = useMapBehavior(mapRef);
+    const teamMarkers = useSelector((state) => Object.values(state.teams)?.filter((team) => team.position));
 
     useEffect(() => {
         if (country) {
@@ -40,7 +41,11 @@ const Map = () => {
                     styles: mapStyles,
                     disableDefaultUI: true,
                 }}
-            ></GoogleMap>
+            >
+                {teamMarkers?.map((team) => (
+                    <Marker key={team.team_id} position={team.position} icon={{ url: team.logo, scaledSize: { width: 80, height: 80 } }} />
+                ))}
+            </GoogleMap>
         </BaseMap>
     );
 };
