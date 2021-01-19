@@ -27,7 +27,7 @@ const useMapBehavior = (mapRef) => {
         const geocode = await getGeocode({ address: data[0].description });
         const countryName = getCountryName(geocode[0]);
         setCountry(countryName);
-        panTo(geocode[0]);
+        panTo(geocode[0].geometry.location);
     };
 
     const getCountryName = (geocode) => {
@@ -40,13 +40,14 @@ const useMapBehavior = (mapRef) => {
         });
     };
 
-    const panTo = (geocode) => {
-        mapRef.current?.panTo(geocode.geometry.location);
+    const panTo = (location) => {
+        mapRef.current?.panTo(location);
         mapRef.current?.setZoom(6);
     };
 
     const handleSearchChange = (term) => {
         setValue(term);
+        !term && panTo(initialPosition);
     };
 
     return { initialPosition, value, country, setValue, handleSearchChange };

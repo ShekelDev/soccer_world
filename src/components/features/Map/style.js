@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const BaseMap = styled.div`
     display: flex;
     position: relative;
+    justify-content: center;
     width: 100%;
     height: 100%;
 `;
@@ -10,9 +11,8 @@ export const BaseMap = styled.div`
 export const SearchInputWrapper = styled.div`
     position: absolute;
     top: 0;
-    margin-block-start: 20px;
-    margin-inline-start: 20px;
-    width: 200px;
+    margin-block-start: 55px;
+    width: 75%;
     border-radius: 7px;
     height: auto;
     z-index: 9999;
@@ -22,25 +22,52 @@ export const SearchInputWrapper = styled.div`
 export const mapStyles = [
     {
         featureType: "all",
-        elementType: "all",
+        elementType: "geometry",
         stylers: [
             {
-                saturation: "32",
+                color: "#202c3e",
+            },
+        ],
+    },
+    {
+        featureType: "all",
+        elementType: "labels.text.fill",
+        stylers: [
+            {
+                gamma: 0.01,
             },
             {
-                lightness: "-3",
+                lightness: 20,
+            },
+            {
+                weight: "1.39",
+            },
+            {
+                color: "#ffffff",
+            },
+        ],
+    },
+    {
+        featureType: "all",
+        elementType: "labels.text.stroke",
+        stylers: [
+            {
+                weight: "0.96",
+            },
+            {
+                saturation: "9",
             },
             {
                 visibility: "on",
             },
             {
-                weight: "1.18",
+                color: "#000000",
             },
         ],
     },
     {
-        featureType: "administrative",
-        elementType: "labels",
+        featureType: "all",
+        elementType: "labels.icon",
         stylers: [
             {
                 visibility: "off",
@@ -49,49 +76,73 @@ export const mapStyles = [
     },
     {
         featureType: "landscape",
-        elementType: "labels",
+        elementType: "geometry",
         stylers: [
             {
-                visibility: "off",
-            },
-        ],
-    },
-    {
-        featureType: "landscape.man_made",
-        elementType: "all",
-        stylers: [
-            {
-                saturation: "-70",
+                lightness: 30,
             },
             {
-                lightness: "14",
+                saturation: "9",
+            },
+            {
+                color: "#29446b",
             },
         ],
     },
     {
         featureType: "poi",
-        elementType: "labels",
+        elementType: "geometry",
         stylers: [
             {
-                visibility: "off",
+                saturation: 20,
+            },
+        ],
+    },
+    {
+        featureType: "poi.park",
+        elementType: "geometry",
+        stylers: [
+            {
+                lightness: 20,
+            },
+            {
+                saturation: -20,
             },
         ],
     },
     {
         featureType: "road",
-        elementType: "labels",
+        elementType: "geometry",
         stylers: [
             {
-                visibility: "off",
+                lightness: 10,
+            },
+            {
+                saturation: -30,
             },
         ],
     },
     {
-        featureType: "transit",
-        elementType: "labels",
+        featureType: "road",
+        elementType: "geometry.fill",
         stylers: [
             {
-                visibility: "off",
+                color: "#193a55",
+            },
+        ],
+    },
+    {
+        featureType: "road",
+        elementType: "geometry.stroke",
+        stylers: [
+            {
+                saturation: 25,
+            },
+            {
+                lightness: 25,
+            },
+            {
+                weight: "0.01",
             },
         ],
     },
@@ -100,22 +151,7 @@ export const mapStyles = [
         elementType: "all",
         stylers: [
             {
-                saturation: "100",
-            },
-            {
-                lightness: "-14",
-            },
-        ],
-    },
-    {
-        featureType: "water",
-        elementType: "labels",
-        stylers: [
-            {
-                visibility: "off",
-            },
-            {
-                lightness: "12",
+                lightness: -20,
             },
         ],
     },

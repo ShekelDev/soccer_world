@@ -1,15 +1,22 @@
-import React from "react";
-import { TextField } from "@material-ui/core";
-import { BaseSearchInput } from "./style";
+import React, { useState } from "react";
+import TextInput from "../TextInput";
+import { BiSearch } from "react-icons/bi";
+import { BaseSearchInput, IconWrapper } from "./style";
 
 const SearchInput = (props) => {
-    const handleChange = (e) => {
-        props.onChange(e.target.value);
+    const [hasValue, setHasValue] = useState(false);
+
+    const handleChange = (value) => {
+        setHasValue(value.length > 0);
+        props.onChange(value);
     };
 
     return (
         <BaseSearchInput>
-            <TextField value={props.value} onChange={handleChange} type="search" label="Search" variant="outlined" style={{ width: "100%" }} />
+            <IconWrapper hasValue={hasValue}>
+                <BiSearch />
+            </IconWrapper>
+            <TextInput value={props.value} placeholder="Search" onChange={handleChange} size="32px" padding="16px 26px 16px 70px" />
         </BaseSearchInput>
     );
 };

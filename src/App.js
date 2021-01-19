@@ -10,15 +10,15 @@ const App = () => {
     return (
         <Content>
             <Router>
-                <MapWrapper>
-                    <Map />
-                </MapWrapper>
                 <DetailsWrapper>
                     <Switch>
                         <Route path={`/${URL.leagues}/:country`} component={Leagues} />
                         <Route path={`/${URL.standings}/:leagueId`} component={Standings} />
                     </Switch>
                 </DetailsWrapper>
+                <MapWrapper>
+                    <Map />
+                </MapWrapper>
             </Router>
         </Content>
     );
