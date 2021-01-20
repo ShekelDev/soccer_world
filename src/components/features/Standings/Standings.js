@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getGeocode } from "use-places-autocomplete";
 import Text from "components/common/Text";
 import List from "components/common/List";
+import Button from "components/common/Button";
 import UnitCard from "components/common/UnitCard";
 import { BaseStandings, Header } from "./style";
 
@@ -32,8 +33,9 @@ const Standings = (props) => {
                 <Text size="42px" isBold>
                     {leagueName}
                 </Text>
+                <Button value="<" />
             </Header>
-            <List height="calc(100vh - 200px)">
+            <List height="calc(100vh - 260px)">
                 {standings.map((standing, index) => (
                     <UnitCard
                         key={standing.rank}

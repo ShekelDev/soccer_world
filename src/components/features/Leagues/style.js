@@ -4,7 +4,8 @@ export const BaseLeagues = styled.div`
     display: flex;
     flex-direction: column;
     width: 100vw;
-    padding: 10px;
+    padding-inline-start: 10px;
+    padding-inline-end: 20px;
 `;
 
 export const BaseLeague = styled.div`

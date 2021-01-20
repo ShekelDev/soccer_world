@@ -4,14 +4,17 @@ export const BaseStandings = styled.div`
     display: flex;
     flex-direction: column;
     width: 100vw;
-    padding: 0px 10px;
+    padding-inline-start: 10px;
+    padding-inline-end: 20px;
 `;
 
 export const Header = styled.div`
     display: flex;
     font-size: 60px;
-    padding: 0px 55px;
+    padding-inline-start: 55px;
+    padding-inline-end: 15px;
     align-items: center;
+    justify-content: space-between;
     height: 120px;
     text-transform: capitalize;
 `;
