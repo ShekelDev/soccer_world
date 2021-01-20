@@ -4,8 +4,9 @@ import { useHistory } from "react-router";
 import { createSelector } from "reselect";
 import { getStandings } from "store/actions";
 import { useDispatch, useSelector } from "react-redux";
-import League from "./League";
-import { BaseLeagues, Header, LeagueList } from "./style";
+import List from "components/common/List";
+import UnitCard from "components/common/UnitCard";
+import { BaseLeagues } from "./style";
 
 const Leagues = (props) => {
     const history = useHistory();
@@ -20,12 +21,17 @@ const Leagues = (props) => {
 
     return (
         <BaseLeagues>
-            {/* <Header>{country} Leagues</Header> */}
-            <LeagueList>
+            <List height={"calc(100vh - 160px)"}>
                 {leagues.map((league, index) => (
-                    <League key={league.league_id} {...league} index={index} onClick={() => handleLeagueClick(league.league_id)} />
+                    <UnitCard
+                        key={league.league_id}
+                        primaryValue={league.name}
+                        index={index}
+                        description={`Ends on ${league.season_end}`}
+                        onClick={() => handleLeagueClick(league.league_id)}
+                    />
                 ))}
-            </LeagueList>
+            </List>
         </BaseLeagues>
     );
 };

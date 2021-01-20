@@ -3,8 +3,9 @@ import { createSelector } from "reselect";
 import { getTeams, addTeamCoords } from "store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { getGeocode } from "use-places-autocomplete";
-import Standing from "./Standing";
-import { BaseStandings, Header, StandingsList } from "./style";
+import List from "components/common/List";
+import UnitCard from "components/common/UnitCard";
+import { BaseStandings, Header } from "./style";
 
 const Standings = (props) => {
     const dispatch = useDispatch();
@@ -26,11 +27,17 @@ const Standings = (props) => {
     return (
         <BaseStandings>
             <Header>League Standings</Header>
-            <StandingsList>
-                {standings.map((standing) => (
-                    <Standing key={standing.rank} {...standing} onClick={handleTeamClick} />
+            <List height="calc(100vh - 200px)">
+                {standings.map((standing, index) => (
+                    <UnitCard
+                        key={standing.rank}
+                        index={index}
+                        primaryValue={standing.teamName}
+                        description={standing.description}
+                        onClick={handleTeamClick}
+                    />
                 ))}
-            </StandingsList>
+            </List>
         </BaseStandings>
     );
 };

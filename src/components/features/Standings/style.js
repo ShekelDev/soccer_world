@@ -12,14 +12,6 @@ export const Header = styled.div`
     text-transform: capitalize;
 `;
 
-export const StandingsList = styled.div`
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    padding: 0px 10px;
-    gap: 5px;
-`;
-
 export const BaseStanding = styled.div`
     display: flex;
     border: 2px solid darkgray;
