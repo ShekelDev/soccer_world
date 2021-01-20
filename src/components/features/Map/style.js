@@ -151,7 +151,7 @@ export const mapStyles = [
         elementType: "all",
         stylers: [
             {
-                lightness: -20,
+                color: "#0A0A26",
             },
         ],
     },
