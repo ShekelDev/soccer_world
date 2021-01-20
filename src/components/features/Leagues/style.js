@@ -31,13 +31,6 @@ export const BaseLeague = styled.div`
     gap: 35px;
 `;
 
-export const Placeholder = styled.div`
-    height: 75px;
-    width: 75px;
-    background: #e2ad47;
-    border-radius: 25px;
-`;
-
 export const Name = styled.div`
     display: flex;
     flex-direction: column;

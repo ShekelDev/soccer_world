@@ -22,8 +22,8 @@ const Leagues = (props) => {
         <BaseLeagues>
             {/* <Header>{country} Leagues</Header> */}
             <LeagueList>
-                {leagues.map((league) => (
-                    <League key={league.league_id} {...league} onClick={() => handleLeagueClick(league.league_id)} />
+                {leagues.map((league, index) => (
+                    <League key={league.league_id} {...league} index={index} onClick={() => handleLeagueClick(league.league_id)} />
                 ))}
             </LeagueList>
         </BaseLeagues>

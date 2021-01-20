@@ -1,11 +1,12 @@
 import React from "react";
 import Text from "components/common/Text";
-import { BaseLeague, Placeholder, Name } from "./style";
+import Initials from "components/common/Initials";
+import { BaseLeague, Name } from "./style";
 
 const League = (props) => {
     return (
         <BaseLeague onClick={props.onClick}>
-            <Placeholder />
+            <Initials value={props.name} index={props.index} />
             <Name>
                 <Text size="36px" isBold>
                     {props.name}
