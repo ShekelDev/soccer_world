@@ -11,7 +11,7 @@ export const BaseMap = styled.div`
 export const SearchInputWrapper = styled.div`
     position: absolute;
     top: 0;
-    margin-block-start: 55px;
+    margin-block-start: 70px;
     width: 75%;
     border-radius: 7px;
     height: auto;
