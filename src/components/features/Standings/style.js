@@ -4,11 +4,15 @@ export const BaseStandings = styled.div`
     display: flex;
     flex-direction: column;
     width: 100vw;
+    padding: 0px 10px;
 `;
 
 export const Header = styled.div`
     display: flex;
     font-size: 60px;
+    padding: 0px 55px;
+    align-items: center;
+    height: 120px;
     text-transform: capitalize;
 `;
 

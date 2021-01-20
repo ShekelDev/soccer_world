@@ -3,6 +3,7 @@ import { createSelector } from "reselect";
 import { getTeams, addTeamCoords } from "store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { getGeocode } from "use-places-autocomplete";
+import Text from "components/common/Text";
 import List from "components/common/List";
 import UnitCard from "components/common/UnitCard";
 import { BaseStandings, Header } from "./style";
@@ -11,6 +12,7 @@ const Standings = (props) => {
     const dispatch = useDispatch();
     const { leagueId } = props.match.params;
     const teams = useSelector((state) => state.teams);
+    const leagueName = useSelector((state) => selectLeagueName(state, leagueId));
     const standings = useSelector((state) => selectStandings(state, leagueId));
 
     useEffect(() => {
@@ -24,9 +26,15 @@ const Standings = (props) => {
         dispatch(addTeamCoords(teamId, { lat, lng }));
     };
 
+    console.log(leagueName);
+
     return (
         <BaseStandings>
-            <Header>League Standings</Header>
+            <Header>
+                <Text size="42px" isBold>
+                    {leagueName}
+                </Text>
+            </Header>
             <List height="calc(100vh - 200px)">
                 {standings.map((standing, index) => (
                     <UnitCard
@@ -51,4 +59,10 @@ const selectStandings = createSelector([getStandingsState, getLeagueId], (standi
     Object.values(standings)
         ?.filter((standing) => standing.leagueId == leagueId)
         .sort((a, b) => (a.rank > b.rank ? 1 : -1))
+);
+
+const getLeaguesState = (state) => state.leagues;
+const selectLeagueName = createSelector(
+    [getLeaguesState, getLeagueId],
+    (leagues, leagueId) => Object.values(leagues)?.find((league) => league.league_id == leagueId)?.name
 );

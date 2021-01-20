@@ -4,7 +4,6 @@ import Initials from "components/common/Initials";
 import { BaseUnitCard, Info } from "./style";
 
 const UnitCard = (props) => {
-    console.log(props.primaryValue);
     return (
         <BaseUnitCard onClick={props.onClick}>
             <Initials value={props.primaryValue} index={props.index} />
