@@ -26,8 +26,6 @@ const Standings = (props) => {
         dispatch(addTeamCoords(teamId, { lat, lng }));
     };
 
-    console.log(leagueName);
-
     return (
         <BaseStandings>
             <Header>
