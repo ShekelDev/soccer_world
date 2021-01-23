@@ -43,5 +43,5 @@ export const HandleWrapper = styled.div`
 
 export const Handle = styled.img`
     transform: rotate(${({ isOpen }) => (isOpen ? "180deg" : 0)});
-    transition: all 0.15s ease-in-out;
+    transition: transform 0.15s ease-in-out;
 `;

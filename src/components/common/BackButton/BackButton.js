@@ -1,12 +1,12 @@
 import React from "react";
-import { IoChevronBack } from "react-icons/io5";
-import { BaseBackButton, IconWrapper } from "./style";
+import arrow from "assets/icons/arrow.png";
+import { BaseBackButton, IconWrapper, BackIcon } from "./style";
 
 const BackButton = (props) => {
     return (
         <BaseBackButton onClick={props.onClick}>
             <IconWrapper>
-                <IoChevronBack />
+                <BackIcon src={arrow} />
             </IconWrapper>
         </BaseBackButton>
     );

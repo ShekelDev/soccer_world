@@ -7,6 +7,9 @@ export const BaseBackButton = styled.div`
     height: 52px;
     width: 52px;
     cursor: pointer;
+    &:hover {
+        border-color: darkgray;
+    }
 `;
 
 export const IconWrapper = styled.div`
@@ -17,4 +20,9 @@ export const IconWrapper = styled.div`
     color: #c7ccd4;
     width: 100%;
     height: 100%;
+`;
+
+export const BackIcon = styled.img`
+    transform: rotate(90deg);
+    height: 15px;
 `;

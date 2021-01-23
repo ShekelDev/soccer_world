@@ -13,8 +13,12 @@ export const IconWrapper = styled.div`
     align-items: center;
     justify-content: flex-end;
     height: 74px;
-    color: ${({ hasValue }) => (hasValue ? "navy" : "#bbb5b5")};
     width: 55px;
     z-index: 2;
-    transition: color 0.2s ease-in-out;
+`;
+
+export const SearchIcon = styled.img`
+    height: 26px;
+    filter: ${({ hasValue }) => hasValue && "invert(10%) sepia(79%) saturate(7068%) hue-rotate(244deg) brightness(56%) contrast(120%)"};
+    transition: filter 0.2s ease-in-out;
 `;
