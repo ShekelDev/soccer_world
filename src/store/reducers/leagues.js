@@ -10,11 +10,10 @@ const leagues = (state = {}, action) => {
 };
 
 const insertLeagues = (leagues, newLeagues) => {
-    const tmpLeagues = { ...leagues };
     newLeagues.forEach((league) => {
-        league.type === "League" && (tmpLeagues[league.league_id] = league);
+        league.type === "League" && (leagues[league.league_id] = league);
     });
-    return tmpLeagues;
+    return { ...leagues };
 };
 
 export default leagues;

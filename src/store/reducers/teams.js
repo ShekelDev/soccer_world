@@ -12,17 +12,15 @@ const teams = (state = [], action) => {
 };
 
 const insertTeams = (teams, { newTeams, leagueId }) => {
-    const tmpTeams = { ...teams };
     newTeams.forEach((team) => {
-        tmpTeams[team.team_id] = { ...team, leagueId };
+        teams[team.team_id] = { ...team, leagueId };
     });
-    return tmpTeams;
+    return { ...teams };
 };
 
 const addCoords = (teams, { teamId, position }) => {
-    const tmpTeams = { ...teams };
-    tmpTeams[teamId] = { ...teams[teamId], position };
-    return tmpTeams;
+    teams[teamId] = { ...teams[teamId], position };
+    return { ...teams };
 };
 
 export default teams;

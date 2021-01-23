@@ -10,11 +10,10 @@ const standings = (state = {}, action) => {
 };
 
 const insertStandings = (standings, { newStandings, leagueId }) => {
-    const tmpStandings = { ...standings };
     newStandings.forEach((standing) => {
-        tmpStandings[standing.team_id] = { ...standing, leagueId };
+        standings[standing.team_id] = { ...standing, leagueId };
     });
-    return tmpStandings;
+    return { ...standings };
 };
 
 export default standings;
