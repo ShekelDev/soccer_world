@@ -1,4 +1,4 @@
-export const toInitials = (name) => {
+export const getInitials = (name) => {
     const splitName = name.split(" ");
     if (splitName.length > 1) {
         return getInitialsOfMultipleWords(splitName).toUpperCase();

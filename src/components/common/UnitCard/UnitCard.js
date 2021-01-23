@@ -10,7 +10,7 @@ const UnitCard = (props) => {
 
     return (
         <BaseUnitCard onClick={handleClick}>
-            <Initials value={props.primaryValue} index={props.index} />
+            <Initials value={props.primaryValue} />
             <Info>
                 <Text size="36px" isBold>
                     {props.primaryValue}

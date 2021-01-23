@@ -8,5 +8,5 @@ export const BaseInitials = styled.div`
     border-radius: 25px;
     justify-content: center;
     align-items: center;
-    background: ${({ bgColor }) => bgColor || "#e2ad47"};
+    background: ${({ bgColor }) => bgColor};
 `;
