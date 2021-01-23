@@ -4,7 +4,7 @@ import { createSelector } from "reselect";
 const useTeamMarkers = () => {
     const teamMarkers = useSelector(selectTeams);
 
-    return teamMarkers;
+    return { teamMarkers };
 };
 
 const getTeamsState = (state) => state.teams;
