@@ -42,4 +42,11 @@ export const TeamDetails = styled.div`
     font-size: 40px;
 `;
 
-export const TeamLogo = styled.img``;
+export const BaseTeam = styled.div`
+    display: grid;
+    width: 100%;
+    justify-content: center;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 40px 40px;
+    padding: 5px 0px 18px;
+`;

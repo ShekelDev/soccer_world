@@ -4,6 +4,7 @@ import { getTeams, addTeamCoords } from "store/actions";
 import { useDispatch } from "react-redux";
 import { useTeams, useStandings } from "./hooks";
 import { getGeocode } from "use-places-autocomplete";
+import Team from "./Team";
 import Text from "components/common/Text";
 import List from "components/common/List";
 import UnitCard from "components/common/UnitCard";
@@ -53,7 +54,7 @@ const Standings = (props) => {
                         isOpen={openTeam === standing.team_id}
                         onClick={handleTeamClick}
                     >
-                        HELLO
+                        <Team {...standing.all} />
                     </UnitCard>
                 ))}
             </List>
