@@ -2,7 +2,7 @@ import React from "react";
 import Text from "components/common/Text";
 import Logo from "components/common/Logo";
 import Initials from "components/common/Initials";
-import { BaseUnitCard, Info } from "./style";
+import { BaseUnitCard, Main, Info, Secondary } from "./style";
 
 const UnitCard = (props) => {
     const handleClick = () => {
@@ -10,16 +10,19 @@ const UnitCard = (props) => {
     };
 
     return (
-        <BaseUnitCard onClick={handleClick}>
-            {props.logo ? <Logo url={props.logo} /> : <Initials value={props.primaryValue} />}
-            <Info>
-                <Text size="36px" isBold>
-                    {props.primaryValue}
-                </Text>
-                <Text size="22px" color="lightgray">
-                    {props.description}
-                </Text>
-            </Info>
+        <BaseUnitCard>
+            <Main onClick={handleClick} isOpen={props.isOpen}>
+                {props.logo ? <Logo url={props.logo} /> : <Initials value={props.primaryValue} />}
+                <Info>
+                    <Text size="36px" isBold>
+                        {props.primaryValue}
+                    </Text>
+                    <Text size="22px" color="lightgray">
+                        {props.secondaryValue}
+                    </Text>
+                </Info>
+            </Main>
+            {props.isOpen && <Secondary>{props.children}</Secondary>}
         </BaseUnitCard>
     );
 };

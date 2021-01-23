@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import { getTeams, addTeamCoords } from "store/actions";
 import { useDispatch } from "react-redux";
@@ -16,12 +16,14 @@ const Standings = (props) => {
     const { leagueId } = props.match.params;
     const { teams } = useTeams();
     const { leagueName, standings } = useStandings(leagueId);
+    const [openTeam, setOpenTeam] = useState();
 
     useEffect(() => {
         dispatch(getTeams(leagueId));
     }, [leagueId]);
 
     const handleTeamClick = async (teamId) => {
+        setOpenTeam(teamId !== openTeam && teamId);
         const geolocation = await getGeocode({ address: `${teams[teamId].venue_name}` });
         const lat = geolocation[0].geometry.location.lat();
         const lng = geolocation[0].geometry.location.lng();
@@ -47,9 +49,12 @@ const Standings = (props) => {
                         id={standing.team_id}
                         logo={standing.logo}
                         primaryValue={standing.teamName}
-                        description={standing.description}
+                        secondaryValue={standing.description}
+                        isOpen={openTeam === standing.team_id}
                         onClick={handleTeamClick}
-                    />
+                    >
+                        HELLO
+                    </UnitCard>
                 ))}
             </List>
         </BaseStandings>

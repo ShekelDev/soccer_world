@@ -25,9 +25,9 @@ const Leagues = (props) => {
                 {leagues.map((league, index) => (
                     <UnitCard
                         key={league.league_id}
-                        primaryValue={league.name}
                         index={index}
-                        description={`Ends on ${league.season_end}`}
+                        primaryValue={league.name}
+                        secondaryValue={`Ends on ${league.season_end}`}
                         onClick={() => handleLeagueClick(league.league_id)}
                     />
                 ))}
