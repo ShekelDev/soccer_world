@@ -3,7 +3,7 @@ import { URL } from "constant";
 import { useHistory } from "react-router";
 import { getStandings } from "store/actions";
 import { useDispatch } from "react-redux";
-import { useLeagues } from "./data";
+import { useLeagues } from "./hooks";
 import List from "components/common/List";
 import UnitCard from "components/common/UnitCard";
 import { BaseLeagues } from "./style";

@@ -5,8 +5,7 @@ import { useDispatch } from "react-redux";
 import { getLeagues } from "store/actions";
 import withGoogleApi from "./withGoogleApi";
 import { GoogleMap, Marker } from "@react-google-maps/api";
-import { useTeamMarkers } from "./data";
-import useMapBehavior from "./useMapBehavior";
+import { useTeamMarkers, useMapBehavior } from "./hooks";
 import SearchInput from "components/common/SearchInput";
 import { BaseMap, SearchInputWrapper, mapStyles } from "./style";
 

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useHistory } from "react-router";
 import { getTeams, addTeamCoords } from "store/actions";
 import { useDispatch } from "react-redux";
-import { useTeams, useStandings } from "./data";
+import { useTeams, useStandings } from "./hooks";
 import { getGeocode } from "use-places-autocomplete";
 import Text from "components/common/Text";
 import List from "components/common/List";
