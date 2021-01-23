@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const BaseBackButton = styled.div`
     display: flex;
-    border: 4px solid #c7ccd4;
-    border-radius: 15px;
-    height: 52px;
-    width: 52px;
+    border: 3px solid #bec5cd;
+    border-radius: 13px;
+    height: 44px;
+    width: 44px;
     cursor: pointer;
     &:hover {
         border-color: darkgray;
@@ -24,5 +24,5 @@ export const IconWrapper = styled.div`
 
 export const BackIcon = styled.img`
     transform: rotate(90deg);
-    height: 15px;
+    height: 12px;
 `;

@@ -10,7 +10,6 @@ export const BaseStandings = styled.div`
 
 export const Header = styled.div`
     display: flex;
-    font-size: 60px;
     padding-inline-start: 55px;
     padding-inline-end: 15px;
     align-items: center;

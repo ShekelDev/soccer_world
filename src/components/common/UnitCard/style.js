@@ -8,7 +8,7 @@ export const BaseUnitCard = styled.div`
 export const Main = styled.div`
     display: flex;
     border-radius: 30px;
-    padding: 20px 25px;
+    padding: 22px 25px;
     box-sizing: border-box;
     background: white;
     cursor: pointer;
@@ -21,6 +21,7 @@ export const Main = styled.div`
 export const Info = styled.div`
     display: flex;
     flex-direction: column;
+    max-width: 260px;
 `;
 
 export const Secondary = styled.div`
@@ -32,7 +33,7 @@ export const Secondary = styled.div`
 
 export const TeamSummary = styled.div`
     display: flex;
-    gap: 35px;
+    gap: 18px;
 `;
 
 export const HandleWrapper = styled.div`

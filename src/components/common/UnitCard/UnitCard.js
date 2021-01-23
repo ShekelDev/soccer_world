@@ -16,10 +16,10 @@ const UnitCard = (props) => {
                 <TeamSummary>
                     {props.logo ? <Logo url={props.logo} /> : <Initials value={props.primaryValue} />}
                     <Info>
-                        <Text size="36px" isBold>
+                        <Text size="30px" isBold>
                             {props.primaryValue}
                         </Text>
-                        <Text size="22px" color="lightgray">
+                        <Text size="22px" color="#949494">
                             {props.secondaryValue}
                         </Text>
                     </Info>

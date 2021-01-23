@@ -14,8 +14,7 @@ export const MapWrapper = styled.div`
 export const DetailsWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    max-width: 30%;
-    width: auto;
+    max-width: 520px;
     background: #e9eef4;
 `;
 

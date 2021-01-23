@@ -38,12 +38,12 @@ const Standings = (props) => {
     return (
         <BaseStandings>
             <Header>
-                <Text size="42px" isBold>
+                <Text size="35px" isBold>
                     {leagueName}
                 </Text>
                 <BackButton onClick={handleBackClick} />
             </Header>
-            <List height="calc(100vh - 260px)">
+            <List height="calc(100vh - 220px)">
                 {standings.map((standing) => (
                     <UnitCard
                         key={standing.team_id}

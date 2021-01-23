@@ -4,9 +4,10 @@ import { useHistory } from "react-router";
 import { getStandings } from "store/actions";
 import { useDispatch } from "react-redux";
 import { useLeagues } from "./hooks";
+import Text from "components/common/Text";
 import List from "components/common/List";
 import UnitCard from "components/common/UnitCard";
-import { BaseLeagues } from "./style";
+import { BaseLeagues, Header } from "./style";
 
 const Leagues = (props) => {
     const history = useHistory();
@@ -21,7 +22,12 @@ const Leagues = (props) => {
 
     return (
         <BaseLeagues>
-            <List height={"calc(100vh - 160px)"}>
+            <Header>
+                <Text size="35px" isBold>
+                    {`${country} Leagues`}
+                </Text>
+            </Header>
+            <List height={"calc(100vh - 220px)"}>
                 {leagues.map((league, index) => (
                     <UnitCard
                         key={league.league_id}

@@ -18,3 +18,12 @@ export const BaseLeague = styled.div`
     gap: 35px;
     direction: ltr;
 `;
+
+export const Header = styled.div`
+    display: flex;
+    padding-inline-start: 55px;
+    padding-inline-end: 15px;
+    align-items: center;
+    height: 120px;
+    text-transform: capitalize;
+`;
