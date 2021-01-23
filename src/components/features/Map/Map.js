@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useCallback } from "react";
 import { URL } from "constant";
 import { useHistory } from "react-router";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getLeagues } from "store/actions";
 import withGoogleApi from "./withGoogleApi";
 import { GoogleMap, Marker } from "@react-google-maps/api";
+import { useTeamMarkers } from "./Data";
 import useMapBehavior from "./useMapBehavior";
 import SearchInput from "components/common/SearchInput";
 import { BaseMap, SearchInputWrapper, mapStyles } from "./style";
@@ -13,8 +14,8 @@ const Map = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const mapRef = useRef();
+    const teamMarkers = useTeamMarkers();
     const { initialPosition, value, country, handleSearchChange } = useMapBehavior(mapRef);
-    const teamMarkers = useSelector((state) => Object.values(state.teams)?.filter((team) => team.position));
 
     useEffect(() => {
         if (country) {

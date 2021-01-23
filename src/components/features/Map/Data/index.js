@@ -1,1 +1,1 @@
-export { default as useTeams } from "./useTeams";
+export { default as useTeamMarkers } from "./useTeamMarkers";

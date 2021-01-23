@@ -44,7 +44,8 @@ const Standings = (props) => {
             <List height="calc(100vh - 260px)">
                 {standings.map((standing, index) => (
                     <UnitCard
-                        key={standing.rank}
+                        key={standing.team_id}
+                        id={standing.team_id}
                         index={index}
                         primaryValue={standing.teamName}
                         description={standing.description}

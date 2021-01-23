@@ -20,8 +20,9 @@ const insertTeams = (teams, { newTeams, leagueId }) => {
 };
 
 const addCoords = (teams, { teamId, position }) => {
-    teams[teamId] = { ...teams[teamId], position };
-    return teams;
+    const tmpTeams = { ...teams };
+    tmpTeams[teamId] = { ...teams[teamId], position };
+    return tmpTeams;
 };
 
 export default teams;
