@@ -42,7 +42,7 @@ export const TeamDetails = styled.div`
     font-size: 40px;
 `;
 
-export const BaseTeam = styled.div`
+export const BaseTeamStats = styled.div`
     display: grid;
     width: 100%;
     justify-content: center;

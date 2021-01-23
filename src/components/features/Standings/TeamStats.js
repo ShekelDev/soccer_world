@@ -1,10 +1,10 @@
 import React from "react";
 import Text from "components/common/Text";
-import { BaseTeam } from "./style";
+import { BaseTeamStats } from "./style";
 
-const Team = (props) => {
+const TeamStats = (props) => {
     return (
-        <BaseTeam>
+        <BaseTeamStats>
             <Text size="18px" isBold>
                 Win:{props.win}
             </Text>
@@ -23,8 +23,8 @@ const Team = (props) => {
             <Text size="18px" isBold>
                 MP:{props.matchsPlayed}
             </Text>
-        </BaseTeam>
+        </BaseTeamStats>
     );
 };
 
-export default Team;
+export default TeamStats;

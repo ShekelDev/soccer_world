@@ -4,7 +4,7 @@ import { getTeams, addTeamCoords } from "store/actions";
 import { useDispatch } from "react-redux";
 import { useTeams, useStandings } from "./hooks";
 import { getGeocode } from "use-places-autocomplete";
-import Team from "./Team";
+import TeamStats from "./TeamStats";
 import Text from "components/common/Text";
 import List from "components/common/List";
 import UnitCard from "components/common/UnitCard";
@@ -50,11 +50,11 @@ const Standings = (props) => {
                         id={standing.team_id}
                         logo={standing.logo}
                         primaryValue={standing.teamName}
-                        secondaryValue={standing.description}
+                        secondaryValue={`Team Points: ${standing.points}`}
                         isOpen={openTeam === standing.team_id}
                         onClick={handleTeamClick}
                     >
-                        <Team {...standing.all} />
+                        <TeamStats {...standing.all} />
                     </UnitCard>
                 ))}
             </List>
