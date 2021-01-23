@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router";
-import { createSelector } from "reselect";
 import { getTeams, addTeamCoords } from "store/actions";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useTeams, useStandings } from "./data";
 import { getGeocode } from "use-places-autocomplete";
 import Text from "components/common/Text";
 import List from "components/common/List";
@@ -14,9 +14,8 @@ const Standings = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const { leagueId } = props.match.params;
-    const teams = useSelector((state) => state.teams);
-    const leagueName = useSelector((state) => selectLeagueName(state, leagueId));
-    const standings = useSelector((state) => selectStandings(state, leagueId));
+    const { teams } = useTeams();
+    const { leagueName, standings } = useStandings(leagueId);
 
     useEffect(() => {
         dispatch(getTeams(leagueId));
@@ -58,18 +57,3 @@ const Standings = (props) => {
 };
 
 export default Standings;
-
-const getLeagueId = (_, leagueId) => leagueId;
-const getStandingsState = (state) => state.standings;
-
-const selectStandings = createSelector([getStandingsState, getLeagueId], (standings, leagueId) =>
-    Object.values(standings)
-        ?.filter((standing) => standing.leagueId == leagueId)
-        .sort((a, b) => (a.rank > b.rank ? 1 : -1))
-);
-
-const getLeaguesState = (state) => state.leagues;
-const selectLeagueName = createSelector(
-    [getLeaguesState, getLeagueId],
-    (leagues, leagueId) => Object.values(leagues)?.find((league) => league.league_id == leagueId)?.name
-);
