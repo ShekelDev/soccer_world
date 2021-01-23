@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useHistory } from "react-router";
 import { createSelector } from "reselect";
 import { getTeams, addTeamCoords } from "store/actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,6 +11,7 @@ import BackButton from "components/common/BackButton";
 import { BaseStandings, Header } from "./style";
 
 const Standings = (props) => {
+    const history = useHistory();
     const dispatch = useDispatch();
     const { leagueId } = props.match.params;
     const teams = useSelector((state) => state.teams);
@@ -27,13 +29,17 @@ const Standings = (props) => {
         dispatch(addTeamCoords(teamId, { lat, lng }));
     };
 
+    const handleBackClick = () => {
+        history.goBack();
+    };
+
     return (
         <BaseStandings>
             <Header>
                 <Text size="42px" isBold>
                     {leagueName}
                 </Text>
-                <BackButton />
+                <BackButton onClick={handleBackClick} />
             </Header>
             <List height="calc(100vh - 260px)">
                 {standings.map((standing, index) => (
