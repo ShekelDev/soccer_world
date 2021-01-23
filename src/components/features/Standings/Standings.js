@@ -41,11 +41,11 @@ const Standings = (props) => {
                 <BackButton onClick={handleBackClick} />
             </Header>
             <List height="calc(100vh - 260px)">
-                {standings.map((standing, index) => (
+                {standings.map((standing) => (
                     <UnitCard
                         key={standing.team_id}
                         id={standing.team_id}
-                        index={index}
+                        logo={standing.logo}
                         primaryValue={standing.teamName}
                         description={standing.description}
                         onClick={handleTeamClick}

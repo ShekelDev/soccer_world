@@ -1,5 +1,6 @@
 import React from "react";
 import Text from "components/common/Text";
+import Logo from "components/common/Logo";
 import Initials from "components/common/Initials";
 import { BaseUnitCard, Info } from "./style";
 
@@ -10,7 +11,7 @@ const UnitCard = (props) => {
 
     return (
         <BaseUnitCard onClick={handleClick}>
-            <Initials value={props.primaryValue} />
+            {props.logo ? <Logo url={props.logo} /> : <Initials value={props.primaryValue} />}
             <Info>
                 <Text size="36px" isBold>
                     {props.primaryValue}
