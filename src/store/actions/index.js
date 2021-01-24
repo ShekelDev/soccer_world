@@ -1,9 +1,8 @@
-import { RAPID_API_KEY, RAPID_API_HOST } from "constant";
 import { types } from "store/types";
 
 const headers = {
-    "x-rapidapi-key": RAPID_API_KEY,
-    "x-rapidapi-host": RAPID_API_HOST,
+    "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY,
+    "x-rapidapi-host": process.env.REACT_APP_RAPID_API_HOST,
     useQueryString: true,
 };
 
