@@ -9,7 +9,6 @@ export const IconWrapper = styled.div`
     display: flex;
     position: absolute;
     top: 2px;
-    font-size: 34px;
     align-items: center;
     justify-content: flex-end;
     height: 74px;
