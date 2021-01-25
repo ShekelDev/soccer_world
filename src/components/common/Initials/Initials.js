@@ -24,7 +24,7 @@ const Initials = (props) => {
 const BACKGROUND_COLORS = {
     0: "#D7838B",
     1: "#88B1E9",
-    2: "#97CEC8",
+    2: "#42D6AD",
     3: "#C9B2E0",
     4: "#E2AD47",
 };
