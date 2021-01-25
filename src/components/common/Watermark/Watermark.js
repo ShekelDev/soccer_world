@@ -9,7 +9,7 @@ const Watermark = (props) => {
     return (
         location.pathname !== "/" && (
             <BaseWatermark>
-                <Text size="30px" color="#A9AEB6" fontWeight={700}>
+                <Text size="28px" color="#B2BAC5" fontWeight={700} letterSpacing={"2px"}>
                     {props.label}
                 </Text>
             </BaseWatermark>
