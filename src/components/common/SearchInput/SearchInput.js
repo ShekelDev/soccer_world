@@ -14,7 +14,7 @@ const SearchInput = (props) => {
     return (
         <BaseSearchInput>
             <IconWrapper>
-                <SearchIcon src={magnify} hasValue={hasValue} />
+                <SearchIcon src={magnify} />
             </IconWrapper>
             <TextInput value={props.value} placeholder="Search" onChange={handleChange} size="32px" padding="16px 26px 16px 70px" />
         </BaseSearchInput>
