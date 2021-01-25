@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import TextInput from "../TextInput";
 import magnify from "assets/icons/magnify.png";
 import { BaseSearchInput, IconWrapper, SearchIcon } from "./style";
 
 const SearchInput = (props) => {
-    const [hasValue, setHasValue] = useState(false);
-
     const handleChange = (value) => {
-        setHasValue(value.length > 0);
         props.onChange(value);
     };
 
@@ -16,7 +13,7 @@ const SearchInput = (props) => {
             <IconWrapper>
                 <SearchIcon src={magnify} />
             </IconWrapper>
-            <TextInput value={props.value} placeholder="Search" onChange={handleChange} size="32px" padding="16px 26px 16px 70px" />
+            <TextInput value={props.value} placeholder="Search" onChange={handleChange} size="23px" padding="10px 26px 12px 55px" />
         </BaseSearchInput>
     );
 };
