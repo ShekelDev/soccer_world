@@ -44,8 +44,9 @@ export const TeamDetails = styled.div`
 export const BaseTeamStats = styled.div`
     display: grid;
     width: 100%;
-    justify-content: center;
     grid-template-columns: 100px 100px 100px;
     grid-template-rows: 40px 40px;
-    padding: 5px 0px 18px;
+    padding-block-start: 5px;
+    padding-block-end: 18px;
+    padding-inline-start: 116px;
 `;
