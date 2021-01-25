@@ -14,7 +14,7 @@ const Initials = (props) => {
 
     return (
         <BaseInitials bgColor={getColorKey()}>
-            <Text size="38px" isBold color="white">
+            <Text size="33px" fontWeight={700} color="white">
                 {initials}
             </Text>
         </BaseInitials>

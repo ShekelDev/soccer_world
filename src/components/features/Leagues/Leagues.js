@@ -23,7 +23,7 @@ const Leagues = (props) => {
     return (
         <BaseLeagues>
             <Header>
-                <Text size="35px" isBold>
+                <Text size="35px" fontWeight={700}>
                     {`${country} Leagues`}
                 </Text>
             </Header>

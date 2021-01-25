@@ -3,7 +3,7 @@ import { BaseText } from "./style";
 
 const Text = (props) => {
     return (
-        <BaseText size={props.size} color={props.color} isBold={props.isBold}>
+        <BaseText size={props.size} color={props.color} fontWeight={props.fontWeight}>
             {props.children}
         </BaseText>
     );

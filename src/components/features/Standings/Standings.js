@@ -38,7 +38,7 @@ const Standings = (props) => {
     return (
         <BaseStandings>
             <Header>
-                <Text size="35px" isBold>
+                <Text size="35px" fontWeight={700}>
                     {leagueName}
                 </Text>
                 <BackButton onClick={handleBackClick} />
